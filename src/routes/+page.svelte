@@ -2,9 +2,9 @@
   import { midiReady, listen } from '$lib/midi-notes'
   import { relativeNotes, majorTonic } from '$lib/relative-notes'
   import { names } from '@tonaljs/note'
-</script>
 
-document.title = 'Solfège View'
+  document.title = 'Solfège View'
+</script>
 
 <h1>{document.title}</h1>
 <p>
