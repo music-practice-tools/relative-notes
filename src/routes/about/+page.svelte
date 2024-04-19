@@ -3,4 +3,4 @@
   <a href="/">Home</a>
 </p>
 
-<p>Solfege</p>
+<p>Solfège</p>

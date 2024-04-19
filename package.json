@@ -19,6 +19,8 @@
   },
   "type": "module",
   "dependencies": {
+    "@tonaljs/interval": "^5.0.0",
+    "@tonaljs/note": "^4.10.3",
     "webmidi": "^3.1.8"
   }
 }

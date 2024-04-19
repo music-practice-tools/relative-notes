@@ -1,34 +1,10 @@
 <script>
-  import { WebMidi } from 'webmidi'
-
-  document.title = 'Solfege View'
-  let note = {}
-
-  $: formattedNote = `${note.name ?? ''}${note.accidental ?? ''}`
-
-  let currentInput
-  function listen(input) {
-    if (currentInput) {
-      WebMidi.getInputByName(currentInput).removeListener() // remove all
-      note = {}
-    }
-    currentInput = input
-    WebMidi.getInputByName(input).addListener(
-      'noteon', // all channels
-      (e) => {
-        note = e.note
-      },
-    )
-  }
-
-  const midiReady = WebMidi.enable()
-    .then((e) => {
-      if (WebMidi.inputs.length) {
-        listen(WebMidi.inputs[0].name)
-      }
-    })
-    .catch((err) => console.error(err))
+  import { midiReady, listen } from '$lib/midi-notes'
+  import { relativeNotes, majorTonic } from '$lib/relative-notes'
+  import { names } from '@tonaljs/note'
 </script>
+
+document.title = 'Solfège View'
 
 <h1>{document.title}</h1>
 <p>
@@ -38,8 +14,8 @@
   <label>
     MIDI Input:
     <select on:change={(e) => listen(e.target.value)}>
-      {#await midiReady then}
-        {#each WebMidi.inputs as input}
+      {#await midiReady then midiInputs}
+        {#each midiInputs as input}
           <option>{input.name}</option>
         {/each}
       {/await}
@@ -47,18 +23,42 @@
   </label>
 </p>
 
-<div id="note">{formattedNote}</div>
+<div id="number">Numeric: {$relativeNotes.numerical}</div>
+<div id="solfege">Solfège: {$relativeNotes.solfege}</div>
+<div id="note">Note: {$relativeNotes.name}</div>
+
+<p id="tonic">
+  Do: {$majorTonic ?? ''}
+  <label>
+    Set:
+    <select on:change={(e) => majorTonic.set(e.target.value)}>
+      {#each names() as note}
+        <option>{note}</option>
+      {/each}
+    </select>
+    {#if $relativeNotes.pitchClass != ($majorTonic ?? '')}
+      <button on:click={majorTonic.set($relativeNotes.pitchClass)}
+        >Set {$relativeNotes.pitchClass}</button>
+    {/if}
+  </label>
+</p>
 
 <style>
   :global(body) {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
       sans-serif;
   }
-  #note {
-    width: 6rem;
-    height: 5rem;
-    border: 1px solid;
-    font-size: 5rem;
+  #note,
+  #number,
+  #solfege,
+  #tonic {
+    font-size: 2rem;
+    padding: 0.2rem;
+  }
+
+  #tonic button,
+  #tonic select {
+    font-size: 1rem;
     padding: 0.2rem;
   }
 </style>
