@@ -17,11 +17,20 @@ export function listen(input) {
     )
 }
 
-export const midiReady = WebMidi.enable()
+function throwAlert(type, message) {
+    window.dispatchEvent(new CustomEvent('alert', {
+        detail: `${type}: ${message}`
+    }))
+}
+
+export const midiReady = WebMidi.enable({/*validation: false // speedup - not for dev*/ })
     .then((e) => {
         if (WebMidi.inputs.length) {
             listen(WebMidi.inputs[0].name)
         }
         return WebMidi.inputs
     })
-    .catch((err) => console.error(err))
+    .catch((err) => {
+        console.error(err.message)
+        throw new Error("No MIDI devices were detected, you may need to restart your browser.")
+    })

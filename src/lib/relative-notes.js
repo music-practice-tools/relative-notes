@@ -1,5 +1,5 @@
 import { writable, derived } from 'svelte/store'
-import { semitones, simplify, distance } from '@tonaljs/interval'
+import { get as getInterval, semitones, simplify, distance } from '@tonaljs/interval'
 import { pitchClass } from '@tonaljs/note'
 import { notes } from '$lib/midi-notes'
 
@@ -11,7 +11,7 @@ const solfegeSyllables = [
     'Mi',
     'Fa',
     'Fi',
-    'Sol',
+    'So',
     'Si',
     'La',
     'Li',
@@ -29,39 +29,45 @@ const solfegeEnharmonic = (syllable) =>
 
 const numericals = [
     '1',
-    '1#',
+    '#1',
     '2',
-    '2#',
+    '#2',
     '3',
     '4',
-    '4#',
+    '#4',
     '5',
-    '5#',
+    '#5',
     '6',
-    '6#',
+    '#6',
     '7',
 ]
 const numericalEnharmonics = {
-    '1#': '2b',
-    '2#': '3b',
-    '4#': '5b',
-    '5#': '6b',
-    '6#': '7b',
+    '#1': 'b2',
+    '#2': 'b3',
+    '#4': 'b5',
+    '#5': 'b6',
+    '#6': 'b7',
 }
 const numericalEnharmonic = (number) => numericalEnharmonics[number] ?? number
 
 export const majorTonic = writable()
-export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic]) => {
-    const noteName = $notes.identifier ?? ''
-    const interval = $majorTonic ? simplify(distance($majorTonic, noteName)) : ''
+export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic], _, update) => {
+    update((prev) => {
+        const name = $notes.identifier ?? ''
+        const degree = $majorTonic ? simplify(distance($majorTonic, name)) : ''
+        const delta = prev.name ? distance(prev.name, name) : ''
+        const dir = getInterval(delta).dir
 
-    return {
-        raw: $notes,
-        name: noteName,
-        pitchClass: pitchClass(noteName),
-        interval,
-        numerical: interval ? numericals[semitones(interval)] : '',
-        solfege: interval ? solfegeSyllables[semitones(interval)] : '',
-        majorTonic: $majorTonic
-    }
+        return {
+            raw: $notes,
+            name,
+            pitchClass: pitchClass(name),
+            degree,
+            numerical: degree ? numericals[semitones(degree)] : '',
+            solfege: degree ? solfegeSyllables[semitones(degree)] : '',
+            majorTonic: $majorTonic,
+            delta,
+            deltaDir: Number.isNaN(dir) ? 0 : dir
+        }
+    })
 }, {})
