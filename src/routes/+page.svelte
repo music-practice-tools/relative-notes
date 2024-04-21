@@ -3,7 +3,7 @@
   import { get as getScale } from '@tonaljs/scale'
   import Settings from '$lib/Settings.svelte'
 
-  document.title = 'Solfège View'
+  document.title = 'Relative Notes'
   const tonics = getScale('C chromatic').notes
 
   let system
