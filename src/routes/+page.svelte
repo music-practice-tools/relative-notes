@@ -53,10 +53,11 @@
       sans-serif;
   }
   #note {
-    width: 10rem;
-    height: 10rem;
-    font-size: 10rem;
+    width: 14rem;
+    height: 14rem;
+    font-size: 12rem;
     padding: 0.2rem;
+    color: darkblue;
   }
 
   #tonic,
