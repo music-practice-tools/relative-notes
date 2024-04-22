@@ -5,6 +5,7 @@ export const notes = writable({})
 
 let currentInput
 export function listen(input) {
+    console.log('listen', input)
     if (currentInput) {
         WebMidi.getInputByName(currentInput).removeListener() // remove all
     }
@@ -25,9 +26,9 @@ function throwAlert(type, message) {
 
 export const midiReady = WebMidi.enable({/*validation: false // speedup - not for dev*/ })
     .then((e) => {
-        if (WebMidi.inputs.length) {
-            listen(WebMidi.inputs[0].name)
-        }
+        /*        if (WebMidi.inputs.length) {
+                    listen(WebMidi.inputs[0].name)
+                }*/
         return WebMidi.inputs
     })
     .catch((err) => {

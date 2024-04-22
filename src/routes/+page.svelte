@@ -2,21 +2,17 @@
   import { relativeNotes, majorTonic } from '$lib/relative-notes'
   import { get as getScale } from '@tonaljs/scale'
   import Settings from '$lib/Settings.svelte'
+  import { settings } from '$lib/settings.js'
 
   document.title = 'Relative Notes'
   const tonics = getScale('C chromatic').notes
-
-  let system
-  let chromatics
 </script>
 
 <h1>{document.title}</h1>
 <nav>
   <a href="/about">About</a>
 </nav>
-<Settings
-  bind:system
-  bind:chromatics></Settings>
+<Settings></Settings>
 <div id="tonic">
   <label>
     Tonic:
@@ -31,7 +27,7 @@
       >Set {$relativeNotes.pitchClass}</button>
   {/if}
 
-  {#if system === 'Solfa'}
+  {#if $settings.system === 'Solfa'}
     <div id="note">{$relativeNotes.solfege}</div>
   {:else}
     <div id="note">{$relativeNotes.numerical}</div>

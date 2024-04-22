@@ -1,10 +1,12 @@
 <script>
+  import { onMount, onDestroy } from 'svelte'
   import { midiReady, listen } from '$lib/midi-notes'
-
-  export let system = 'Solfa'
-  export let chromatics = 'Lower'
+  import { settings } from '$lib/settings.js'
 
   const chromaticsValues = ['Lower', 'Raise', 'Melody']
+
+  midiReady.then(() => listen($settings.input))
+  onDestroy(settings.unsubscribe)
 </script>
 
 <div id="wrapper">
@@ -15,7 +17,10 @@
       <label for="midi-input">MIDI Input: </label>
       <select
         id="midi-input"
-        on:change={(e) => listen(e.target.value)}>
+        on:change={(e) => {
+          listen(e.target.value)
+        }}
+        bind:value={$settings.input}>
         {#if midiInputs && midiInputs.length > 0}
           {#each midiInputs as input}
             <option>{input.name}</option>
@@ -30,19 +35,19 @@
       <label
         ><input
           type="radio"
-          bind:group={system}
+          bind:group={$settings.system}
           value="Solfa" />Solfège</label>
       <label
         ><input
           type="radio"
-          bind:group={system}
+          bind:group={$settings.system}
           value="NNS" />Nashville</label>
     </div>
 
     <div class="setting">
       <label>
         Chromatics:
-        <select bind:value={chromatics}>
+        <select bind:value={$settings.chromatics}>
           {#each chromaticsValues as mode}
             <option>{mode}</option>
           {/each}
