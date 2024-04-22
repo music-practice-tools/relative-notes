@@ -16,7 +16,7 @@
 <Settings></Settings>
 <div id="tonic">
   <label>
-    Tonic:
+    Major Tonic:
     <select bind:value={$majorTonic}>
       {#each tonics as note}
         <option>{note}</option>
