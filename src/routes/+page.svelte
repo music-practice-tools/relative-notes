@@ -42,8 +42,8 @@
     {$relativeNotes.name}
     {$relativeNotes.delta}
     {$relativeNotes.deltaDir == 0 ? ''
-    : $relativeNotes.deltaDir == -1 ? 'v'
-    : '^'}
+    : $relativeNotes.deltaDir == -1 ? '↓'
+    : '↑'}
   </div>
 </div>
 

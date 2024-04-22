@@ -21,6 +21,7 @@
   "dependencies": {
     "@tonaljs/interval": "^5.0.0",
     "@tonaljs/note": "^4.10.3",
+    "@tonaljs/roman-numeral": "^4.8.3",
     "tonal": "^6.0.1",
     "webmidi": "^3.1.8"
   }
