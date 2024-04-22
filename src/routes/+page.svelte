@@ -27,15 +27,18 @@
       >Set {$relativeNotes.pitchClass}</button>
   {/if}
 
-  {#if $settings.system === 'Solfa'}
+  {#if $settings.system === 'Solfège'}
     <div id="note">{$relativeNotes.solfege}</div>
-  {:else}
+  {:else if $settings.system === 'Nashville'}
     <div id="note">{$relativeNotes.numerical}</div>
+  {:else}
+    <div id="note">{$relativeNotes.roman}</div>
   {/if}
 
   <div id="detail">
-    Detail: {$relativeNotes.name}
+    Detail:
     {$relativeNotes.raw.number ?? ''}
+    {$relativeNotes.name}
     {$relativeNotes.delta}
     {$relativeNotes.deltaDir == 0 ? ''
     : $relativeNotes.deltaDir == -1 ? 'v'

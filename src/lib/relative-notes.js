@@ -1,6 +1,7 @@
 import { writable, derived } from 'svelte/store'
 import { get as getInterval, semitones, simplify, distance } from '@tonaljs/interval'
 import { pitchClass } from '@tonaljs/note'
+import { get as getRomanNumeral } from "@tonaljs/roman-numeral";
 import { notes } from '$lib/midi-notes'
 
 const solfegeSyllables = [
@@ -17,15 +18,14 @@ const solfegeSyllables = [
     'Li',
     'Ti',
 ]
+
 const solfegeEnharmonics = {
-    Di: 'Ra',
-    Ri: 'Me',
-    Fi: 'Se',
-    Si: 'Le',
-    Li: 'Te',
+    'Di': 'Ra',
+    'Ri': 'Me',
+    'Fi': 'Se',
+    'Si': 'Le',
+    'Li': 'Te',
 }
-const solfegeEnharmonic = (syllable) =>
-    solfegeEnharmonics[syllable] ?? syllable
 
 const numericals = [
     '1',
@@ -48,8 +48,29 @@ const numericalEnharmonics = {
     '#5': 'b6',
     '#6': 'b7',
 }
-const numericalEnharmonic = (number) => numericalEnharmonics[number] ?? number
+const romanEnharmonics = {
+    '#I': 'bII',
+    '#II': 'bII',
+    '#IV': 'bV',
+    '#V': 'bVI',
+    '#VI': 'bVII',
+}
 
+/*function enharmonic(mode) {
+    const flats = mode == 'Solfège', 'Nashville', 'Roman'
+
+    return (note, direction) => {
+        useFlats =
+            mode == 'Melody' && direction == -1 ||
+            mode == 'Flat'
+
+        return useFlats ? flats[note] ?? note : note
+    }
+}
+const solfegeEnharmonic = enharmonic(solfegeEnharmonics)
+const numericalEnharmonic = enharmonic(numericalEnharmonics)
+const romanEnharmonic = enharmonic(romanEnharmonics)
+*/
 export const majorTonic = writable()
 export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic], _, update) => {
     update((prev) => {
@@ -57,17 +78,19 @@ export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic]
         const degree = $majorTonic ? simplify(distance($majorTonic, name)) : ''
         const delta = prev.name ? distance(prev.name, name) : ''
         const dir = getInterval(delta).dir
+        const direction = Number.isNaN(dir) ? 0 : dir
 
         return {
             raw: $notes,
             name,
             pitchClass: pitchClass(name),
             degree,
-            numerical: degree ? numericals[semitones(degree)] : '',
             solfege: degree ? solfegeSyllables[semitones(degree)] : '',
+            numerical: degree ? numericals[semitones(degree)] : '',
+            roman: degree ? getRomanNumeral(getInterval(degree).name) : '',
             majorTonic: $majorTonic,
             delta,
-            deltaDir: Number.isNaN(dir) ? 0 : dir
+            deltaDir: direction
         }
     })
 }, {})

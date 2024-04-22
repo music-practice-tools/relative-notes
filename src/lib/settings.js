@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store'
 
-const defaultSettings = { system: 'Solfa', chromatics: 'Lower' }
+const defaultSettings = { system: 'Solfège', chromatics: 'Lower' }
 export const settings = writable(
     JSON.parse(
         localStorage.getItem('settings') ?? JSON.stringify(defaultSettings),

@@ -3,7 +3,8 @@
   import { midiReady, listen } from '$lib/midi-notes'
   import { settings } from '$lib/settings.js'
 
-  const chromaticsValues = ['Lower', 'Raise', 'Melody']
+  const systemValues = ['Solfège', 'Nashville', 'Roman']
+  //  const chromaticsValues = ['Melody', 'Lower', 'Raise']
 
   midiReady.then(() => listen($settings.input))
   onDestroy(settings.unsubscribe)
@@ -32,18 +33,17 @@
     </div>
 
     <div class="setting">
-      <label
-        ><input
-          type="radio"
-          bind:group={$settings.system}
-          value="Solfa" />Solfège</label>
-      <label
-        ><input
-          type="radio"
-          bind:group={$settings.system}
-          value="NNS" />Nashville</label>
+      <label>
+        System:
+        <select bind:value={$settings.system}>
+          {#each systemValues as system}
+            <option>{system}</option>
+          {/each}
+        </select>
+      </label>
     </div>
 
+    <!-- 
     <div class="setting">
       <label>
         Chromatics:
@@ -54,6 +54,7 @@
         </select>
       </label>
     </div>
+  -->
   {:catch error}
     <span class="warn">{error.message}</span>
   {/await}
