@@ -87,7 +87,7 @@ export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic]
             degree,
             solfege: degree ? solfegeSyllables[semitones(degree)] : '',
             numerical: degree ? numericals[semitones(degree)] : '',
-            roman: degree ? getRomanNumeral(getInterval(degree).name) : '',
+            roman: degree ? getRomanNumeral(getInterval(degree)).name : '',
             majorTonic: $majorTonic,
             delta,
             deltaDir: direction

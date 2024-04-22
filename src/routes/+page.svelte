@@ -5,6 +5,7 @@
   import { settings } from '$lib/settings.js'
 
   document.title = 'Relative Notes'
+
   const tonics = getScale('C chromatic').notes
 </script>
 
