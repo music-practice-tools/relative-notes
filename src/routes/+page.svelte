@@ -35,16 +35,16 @@
   {:else}
     <div id="note">{$relativeNotes.roman}</div>
   {/if}
+</div>
 
-  <div id="detail">
-    Detail:
-    {$relativeNotes.raw.number ?? ''}
-    {$relativeNotes.name}
-    {$relativeNotes.delta}
-    {$relativeNotes.deltaDir == 0 ? ''
-    : $relativeNotes.deltaDir == -1 ? '↓'
-    : '↑'}
-  </div>
+<div id="detail">
+  Detail:
+  {$relativeNotes.raw.number ?? ''}
+  {$relativeNotes.name}
+  {$relativeNotes.delta}
+  {$relativeNotes.deltaDir == 0 ? ''
+  : $relativeNotes.deltaDir == -1 ? '↓'
+  : '↑'}
 </div>
 
 <style>
@@ -63,6 +63,9 @@
   #tonic,
   #tonic button,
   #tonic select {
-    font-size: 1rem;
+    font-size: 2rem;
+  }
+  #tonic button {
+    margin-left: 1rem;
   }
 </style>
