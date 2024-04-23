@@ -11,7 +11,9 @@
 
 <h1>{document.title}</h1>
 <nav>
-  <a href="/about">About</a>
+  <p>
+    <a href="/about">About</a>
+  </p>
 </nav>
 <Settings></Settings>
 <div id="tonic">
@@ -49,8 +51,7 @@
 
 <style>
   :global(body) {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
-      sans-serif;
+    font-family: Sans-Serif;
   }
   #note {
     width: 14rem;
@@ -63,7 +64,7 @@
   #tonic,
   #tonic button,
   #tonic select {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   #tonic button {
     margin-left: 1rem;

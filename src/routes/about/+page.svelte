@@ -1,10 +1,10 @@
 <script>
-  import { browser } from '$app/environment'
+  import kofi from '$lib/assets/KoFi.png'
 </script>
 
-<h1>About</h1>
+<h1>About Relative Notes</h1>
 <p>
-  <a href="/">Home</a>
+  <a href="/">Back to App</a>
 </p>
 
 <p>
@@ -34,15 +34,11 @@
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
-{#if browser}
-  <script
-    src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
-  <script>
-    kofiWidgetOverlay.draw('stevelee1084', {
-      type: 'floating-chat',
-      'floating-chat.donateButton.text': 'Support me',
-      'floating-chat.donateButton.background-color': '#794bc4',
-      'floating-chat.donateButton.text-color': '#fff',
-    })
-  </script>
-{/if}
+<a
+  href="https://ko-fi.com/T6T3OX3K9"
+  target="_blank"
+  ><img
+    height="36"
+    style="border: 0px; height: 36px"
+    src={kofi}
+    alt="Support Me at ko-fi.com" /></a>
