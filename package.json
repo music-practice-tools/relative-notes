@@ -1,5 +1,5 @@
 {
-  "name": "solfeg-view",
+  "name": "relative-notes",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,12 +10,12 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.1",
-    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/kit": "^2.5.7",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "prettier": "^3.2.5",
     "prettier-plugin-svelte": "^3.2.3",
-    "svelte": "^4.2.7",
-    "vite": "^5.0.3"
+    "svelte": "^4.2.15",
+    "vite": "^5.2.10"
   },
   "type": "module",
   "dependencies": {
@@ -23,6 +23,6 @@
     "@tonaljs/note": "^4.10.3",
     "@tonaljs/roman-numeral": "^4.8.3",
     "tonal": "^6.0.1",
-    "webmidi": "^3.1.8"
+    "webmidi": "^3.1.9"
   }
 }
