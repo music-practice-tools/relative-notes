@@ -6,54 +6,54 @@ import { notes } from '$lib/midi-notes'
 
 const solfegeSyllables = [
     'Do',
-    'Ra',
+    'Di',
     'Re',
-    'Me',
+    'Ri',
     'Mi',
     'Fa',
-    'Se',
+    'Fi',
     'So',
-    'Le',
+    'Si',
     'La',
-    'Te',
+    'Li',
     'Ti',
 ]
 
 const solfegeEnharmonics = {
-    'Ra': 'Di',
-    'Me': 'Ri',
-    'Se': 'Fi',
-    'Le': 'Si',
-    'Te': 'Li',
+    'Di': 'Ra',
+    'Ri': 'Me',
+    'Fi': 'Se',
+    'Si': 'Le',
+    'Li': 'Te',
 }
 
 const numericals = [
     '1',
-    'b2',
+    '#2',
     '2',
-    'b3',
+    '#3',
     '3',
     '4',
-    'b5',
+    '#5',
     '5',
-    'b6',
+    '#6',
     '6',
-    'b7',
+    '#7',
     '7',
 ]
 const numericalEnharmonics = {
-    'b2': '#1',
-    'b3': '#2',
-    'b5': '#4',
-    'b6': '#5',
-    'b7': '#6',
+    '#1': 'b2',
+    '#2': 'b3',
+    '#4': 'b5',
+    '#5': 'b6',
+    '#6': 'b7',
 }
 const romanEnharmonics = {
-    'bII': '#I',
-    'bII': '#II',
-    'bV': '#IV',
-    'bVI': '#V',
-    'bVII': '#VI',
+    '#I': 'bII',
+    '#II': 'bII',
+    '#IV': 'bV',
+    '#V': 'bVI',
+    '#VI': 'bVII',
 }
 
 /*function enharmonic(mode) {
