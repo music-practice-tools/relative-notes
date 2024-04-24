@@ -15,9 +15,9 @@
   musical note names (D). Then the pitches can be more easily applied in any Key.
 </p>
 <p>
-  The app monitors MIDI notes coming from external or virtual MIDI devices and
-  displays the appropriate syllable or number. It also display some extra
-  detail.
+  The app monitors MIDI 'noteon' messages coming from external or virtual MIDI
+  devices and displays the appropriate syllable or number. It also display some
+  extra detail.
 </p>
 <p>
   The original use case was to confirm the relative syllable or number in mind

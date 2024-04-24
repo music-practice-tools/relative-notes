@@ -41,9 +41,12 @@
 </div>
 
 <div id="detail">
-  Detail:
+  MIDI:
+  {$relativeNotes.raw.channel ?? ''}
   {$relativeNotes.raw.number ?? ''}
+  Note:
   {$relativeNotes.name}
+  Change:
   {$relativeNotes.delta}
   {delta[$relativeNotes.deltaDir]}
 </div>

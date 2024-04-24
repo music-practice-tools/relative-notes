@@ -15,7 +15,14 @@ export function listen(input) {
     _input.addListener(
         'noteon', // all channels
         (e) => {
-            notes.set(e.note)
+            notes.set({
+                channel: e.message.channel,
+                number: e.note.number,
+                identifier: e.note.identifier,
+                name: e.note.name,
+                accidental: e.note.accidental,
+                octave: e.note.octave,
+            })
         },
     )
 }

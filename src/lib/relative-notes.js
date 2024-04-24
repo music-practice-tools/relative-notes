@@ -1,6 +1,6 @@
 import { writable, derived } from 'svelte/store'
 import { get as getInterval, semitones, simplify, distance } from '@tonaljs/interval'
-import { enharmonic, pitchClass } from '@tonaljs/note'
+import { pitchClass } from '@tonaljs/note'
 import { get as getRomanNumeral } from "@tonaljs/roman-numeral";
 import { notes } from '$lib/midi-notes'
 
@@ -74,9 +74,9 @@ const romanEnharmonic = enharmonic(romanEnharmonics)
 export const majorTonic = writable()
 export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic], _, update) => {
     update((prev) => {
-        const name = enharmonic($notes.identifier ?? '') // to b
-        const degree = simplify(distance($majorTonic, name))
-        const _semitones = semitones(degree)
+        const name = $notes.identifier ?? ''
+        const step = simplify(distance($majorTonic, name))
+        const _semitones = semitones(step)
         const delta = prev.name ? distance(prev.name, name) : ''
         const dir = getInterval(delta).dir
         const direction = Number.isNaN(dir) ? 0 : dir
@@ -84,11 +84,12 @@ export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic]
         return {
             raw: $notes,
             name: name,
+            pitchClass2: $notes.name + $notes.accidental,
             pitchClass: pitchClass(name),
-            degree,
-            solfege: degree ? solfegeSyllables[_semitones] : '',
-            numerical: degree ? numericals[_semitones] : '',
-            roman: degree ? getRomanNumeral(getInterval(degree)).name : '',
+            step,
+            solfege: step ? solfegeSyllables[_semitones] : '',
+            numerical: step ? numericals[_semitones] : '',
+            roman: step ? getRomanNumeral(getInterval(step)).name : '',
             majorTonic: $majorTonic,
             delta,
             deltaDir: direction
