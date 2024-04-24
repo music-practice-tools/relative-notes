@@ -6,7 +6,11 @@
   const systemValues = ['Solfège', 'Nashville', 'Roman']
   //  const chromaticsValues = ['Melody', 'Lower', 'Raise']
 
-  midiReady.then(() => listen($settings.input))
+  midiReady.then(() => {
+    if ($settings.input) {
+      listen($settings.input)
+    }
+  })
   onDestroy(settings.unsubscribe)
 </script>
 
@@ -77,4 +81,3 @@
     padding: 0.5rem;
   }
 </style>
-                                                                              

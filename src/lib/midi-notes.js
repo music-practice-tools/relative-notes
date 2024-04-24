@@ -5,13 +5,14 @@ export const notes = writable({})
 
 let currentInput
 export function listen(input) {
-    console.trace();
-    console.log(WebMidi, WebMidi.getInputByName)
+    if (!input) { return }
     if (currentInput) {
         WebMidi.getInputByName(currentInput).removeListener() // remove all
     }
+    if (!_input) { return }
     currentInput = input
-    WebMidi.getInputByName(input).addListener(
+    const _input = WebMidi.getInputByName(input)
+    _input.addListener(
         'noteon', // all channels
         (e) => {
             notes.set(e.note)
