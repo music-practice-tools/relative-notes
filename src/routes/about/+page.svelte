@@ -54,3 +54,9 @@
     style="border: 0px; height: 36px"
     src={kofi}
     alt="Support Steve at ko-fi.com" /></a>
+
+<style>
+  :global(body) {
+    font-family: Sans-Serif;
+  }
+</style>
