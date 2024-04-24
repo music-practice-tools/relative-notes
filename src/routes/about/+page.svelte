@@ -28,8 +28,8 @@
 </p>
 <p>
   Note that when MIDI devices are connected or virtual midi programs launched
-  the browser page needs to be refreshed (F5) in order for them to become
-  available.
+  the browser will likely need to be refreshed (F5) or restarted in order for
+  them to become available.
 </p>
 <p>
   When using virtual MIDI devices (programs that generate MIDI) on Windows you
