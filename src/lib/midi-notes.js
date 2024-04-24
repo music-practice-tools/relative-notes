@@ -9,9 +9,9 @@ export function listen(input) {
     if (currentInput) {
         WebMidi.getInputByName(currentInput).removeListener() // remove all
     }
-    if (!_input) { return }
     currentInput = input
     const _input = WebMidi.getInputByName(input)
+    if (!_input) { return }
     _input.addListener(
         'noteon', // all channels
         (e) => {
