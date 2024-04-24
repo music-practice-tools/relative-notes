@@ -26,12 +26,13 @@ function throwAlert(type, message) {
     }))
 }
 
+const ERR_NO_INPUTS = "No MIDI devices were detected, you may need to refresh or restart your browser."
 export const midiReady = WebMidi.enable({/*validation: false // speedup - not for dev*/ })
     .then((e) => {
-        console.log(WebMidi.inputs)
-        return WebMidi.inputs
+        const inputs = WebMidi.inputs
+        if (inputs.length == 0) { throw new Error(ERR_NO_INPUTS) } // happens sometimes rather than error
     })
     .catch((err) => {
         console.error(err.message)
-        throw new Error("No MIDI devices were detected, you may need to refresh the page or restart your browser.")
+        throw new Error(ERR_NO_INPUTS)
     })
