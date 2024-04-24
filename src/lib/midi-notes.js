@@ -31,6 +31,7 @@ export const midiReady = WebMidi.enable({/*validation: false // speedup - not fo
     .then((e) => {
         const inputs = WebMidi.inputs
         if (inputs.length == 0) { throw new Error(ERR_NO_INPUTS) } // happens sometimes rather than error
+        return WebMidi.inputs
     })
     .catch((err) => {
         console.error(err.message)
