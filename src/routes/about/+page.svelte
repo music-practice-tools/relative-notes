@@ -27,7 +27,8 @@
   >.
 </p>
 <p>
-  Note that when MIDI devices are connected or virtual midi programs launched
+  Note you will need to enable MIDI access for the browser when asked. In
+  addition, when MIDI devices are connected or virtual midi programs launched
   the browser will likely need to be refreshed (F5) or restarted in order for
   them to become available.
 </p>
