@@ -5,8 +5,7 @@ export const notes = writable({})
 
 let currentInput
 export function listen(input) {
-    console.trace();
-    console.log(WebMidi, WebMidi.getInputByName)
+    if (!input) { return }
     if (currentInput) {
         WebMidi.getInputByName(currentInput).removeListener() // remove all
     }
