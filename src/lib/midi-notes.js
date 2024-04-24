@@ -28,7 +28,7 @@ function throwAlert(type, message) {
 
 export const midiReady = WebMidi.enable({/*validation: false // speedup - not for dev*/ })
     .then((e) => {
-        comsole.log(WebMidi.inputs)
+        console.log(WebMidi.inputs)
         return WebMidi.inputs
     })
     .catch((err) => {
