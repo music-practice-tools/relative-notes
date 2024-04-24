@@ -6,7 +6,8 @@
 
   document.title = 'Relative Notes'
 
-  const tonics = getScale('C chromatic').notes
+  const tonics = getScale('C chromatic').notes // all flats
+  const delta = { '-1': '↓', '0': '', '1': '↑' }
 </script>
 
 <h1>{document.title}</h1>
@@ -44,9 +45,7 @@
   {$relativeNotes.raw.number ?? ''}
   {$relativeNotes.name}
   {$relativeNotes.delta}
-  {$relativeNotes.deltaDir == 0 ? ''
-  : $relativeNotes.deltaDir == -1 ? '↓'
-  : '↑'}
+  {delta[$relativeNotes.deltaDir]}
 </div>
 
 <style>

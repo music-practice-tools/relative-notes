@@ -5,6 +5,8 @@ export const notes = writable({})
 
 let currentInput
 export function listen(input) {
+    console.trace();
+    console.log(WebMidi, WebMidi.getInputByName)
     if (currentInput) {
         WebMidi.getInputByName(currentInput).removeListener() // remove all
     }
@@ -29,5 +31,5 @@ export const midiReady = WebMidi.enable({/*validation: false // speedup - not fo
     })
     .catch((err) => {
         console.error(err.message)
-        throw new Error("No MIDI devices were detected, you may need to restart your browser.")
+        throw new Error("No MIDI devices were detected, you may need to refresh the page or restart your browser.")
     })
