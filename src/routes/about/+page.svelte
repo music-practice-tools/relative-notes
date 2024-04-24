@@ -31,6 +31,12 @@
   the browser page needs to be refreshed (F5) in order for them to become
   available.
 </p>
+<p>
+  When using virtual MIDI devices (programs that generate MIDI) on Windows you
+  might need a virtual MIDI cable such as <a
+    href="https://www.tobias-erichsen.de/software/loopmidi.html">loopMidi</a
+  >.
+</p>
 
 <p>
   This is a Music Practice Tools <a
