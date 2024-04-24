@@ -8,18 +8,21 @@
 </p>
 
 <p>
-  Relative Notes is a tool to support ear training using Solfège, Nashville or
-  Roman numbering.
+  <strong>Relative Notes</strong> is a web app for musical training using Solfège,
+  Nashville or Roman numbering. Ear training or learning tunes, for example, work
+  best using one of these relative symbol systems. Each note is given a symbol (Re,
+  2 or ii) to identify its distance from a tonic note as apposed to using fixed pitch
+  musical note names (D). Then the pitches can be more easily applied in any Key.
 </p>
 <p>
-  It monitors MIDI notes coming from external or virtual MIDI devices and
-  displays the syllable or number for the distance of the note from the selected
-  major scale tonic.
+  The app monitors MIDI notes coming from external or virtual MIDI devices and
+  displays the appropriate syllable or number. It also display some extra
+  detail.
 </p>
 <p>
-  The main use case is to confirm the relative syllable or number matches what
-  is being played. You can even check what is being sung when used in
-  conjunction with a Pitch to MIDI converter such as <a
+  The original use case was to confirm the relative syllable or number in mind
+  matches what is being played. You can even check what is being sung when used
+  in conjunction with a Pitch to MIDI converter such as <a
     href="https://vochlea.com/">Dubler</a
   >.
 </p>
@@ -36,10 +39,6 @@
   by Steve Lee for <a href="https://blog.fullmeasure.uk">Fullmeasure.uk</a>.
 </p>
 
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
 <a
   href="https://ko-fi.com/T6T3OX3K9"
   target="_blank"
@@ -47,4 +46,4 @@
     height="36"
     style="border: 0px; height: 36px"
     src={kofi}
-    alt="Support Me at ko-fi.com" /></a>
+    alt="Support Steve at ko-fi.com" /></a>
