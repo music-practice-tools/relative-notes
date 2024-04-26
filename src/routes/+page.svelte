@@ -79,6 +79,10 @@
   #detail {
     font-size: 1.1rem;
   }
+  #note,
+  :global(a) {
+    color: var(--highlight-color);
+  }
 
   @media (prefers-color-scheme: light) {
     :global(:root) {
@@ -86,9 +90,5 @@
       background-color: #ffffff;
       --highlight-color: darkblue;
     }
-  }
-  #note,
-  a {
-    color: var(--highlight-color);
   }
 </style>

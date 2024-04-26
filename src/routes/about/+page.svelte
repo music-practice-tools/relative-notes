@@ -56,4 +56,19 @@
     alt="Support Steve at ko-fi.com" /></a>
 
 <style>
+  :global(:root) {
+    background-color: #242424;
+    color: #ffffff;
+    font-family: Sans-Serif;
+    color-scheme: light dark;
+    --highlight-color: lightblue;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :global(:root) {
+      color: #242424;
+      background-color: #ffffff;
+      --highlight-color: darkblue;
+    }
+  }
 </style>
