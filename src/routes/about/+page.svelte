@@ -56,7 +56,4 @@
     alt="Support Steve at ko-fi.com" /></a>
 
 <style>
-  :global(body) {
-    font-family: Sans-Serif;
-  }
 </style>

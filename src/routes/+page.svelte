@@ -44,23 +44,28 @@
   MIDI:
   {$relativeNotes.raw.channel ?? ''}
   {$relativeNotes.raw.number ?? ''}
-  Note:
+  &nbsp;Note:
   {$relativeNotes.name}
-  Change:
+  &nbsp;Change:
   {$relativeNotes.delta}
   {delta[$relativeNotes.deltaDir]}
 </div>
 
 <style>
-  :global(body) {
+  :global(:root) {
+    background-color: #242424;
+    color: #ffffff;
     font-family: Sans-Serif;
+    color-scheme: light dark;
+    --highlight-color: lightblue;
   }
+
   #note {
     width: 14rem;
     height: 14rem;
     font-size: 12rem;
     padding: 0.2rem;
-    color: darkblue;
+    color: -var(highlight-color);
   }
 
   #tonic,
@@ -70,5 +75,20 @@
   }
   #tonic button {
     margin-left: 1rem;
+  }
+  #detail {
+    font-size: 1.1rem;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :global(:root) {
+      color: #242424;
+      background-color: #ffffff;
+      --highlight-color: darkblue;
+    }
+  }
+  #note,
+  a {
+    color: var(--highlight-color);
   }
 </style>

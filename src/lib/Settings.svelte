@@ -74,7 +74,7 @@
     margin-left: 1rem;
   }
   div#wrapper {
-    border: 2px solid darkblue;
+    border: 2px solid var(--highlight-color);
     border-radius: 0.5rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;

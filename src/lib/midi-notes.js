@@ -7,7 +7,9 @@ let currentInput
 export function listen(input) {
     if (!input) { return }
     if (currentInput) {
-        WebMidi.getInputByName(currentInput).removeListener() // remove all
+        try {
+            WebMidi.getInputByName(currentInput).removeListener() // remove from all channels
+        } catch (e) { /* don't care */ }
     }
     currentInput = input
     const _input = WebMidi.getInputByName(input)
