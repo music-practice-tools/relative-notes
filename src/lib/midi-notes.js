@@ -39,7 +39,7 @@ const ERR_NO_MIDI = "Your web browser doesn't support MIDI. Try another like Chr
 const ERR_NO_INPUTS = "No MIDI devices were detected, you may need to refresh or restart your browser."
 export const midiReady = WebMidi.enable({/*validation: false // speedup - not for dev*/ })
     .then((e) => {
-        if (!navigator.requestMIDIAccessa){ 
+        if (!navigator.requestMIDIAccess){ 
             throw ""
         }
         
@@ -48,7 +48,7 @@ export const midiReady = WebMidi.enable({/*validation: false // speedup - not fo
         return WebMidi.inputs
     })
     .catch((err) => {
-        if (!navigator.requestMIDIAccessa){ 
+        if (!navigator.requestMIDIAccess){ 
             throw new Error(ERR_NO_MIDI)
         }
         
