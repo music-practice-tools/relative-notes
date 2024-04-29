@@ -56,6 +56,8 @@
     alt="Support Steve at ko-fi.com" /></a>
 
 <style>
+/* In theory we should not need to repeat these global styles */
+
   :global(:root) {
     background-color: #242424;
     color: #ffffff;

@@ -1,6 +1,5 @@
 <script>
   import { relativeNotes, majorTonic } from '$lib/relative-notes'
-  import { get as getScale } from '@tonaljs/scale'
   import Settings from '$lib/Settings.svelte'
   import { settings } from '$lib/settings.js'
 

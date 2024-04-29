@@ -35,14 +35,23 @@ function throwAlert(type, message) {
     }))
 }
 
+const ERR_NO_MIDI = "Your web browser doesn't support MIDI. Try another like Chrome, Firefox or Edge."
 const ERR_NO_INPUTS = "No MIDI devices were detected, you may need to refresh or restart your browser."
 export const midiReady = WebMidi.enable({/*validation: false // speedup - not for dev*/ })
     .then((e) => {
+        if (!navigator.requestMIDIAccessa){ 
+            throw ""
+        }
+        
         const inputs = WebMidi.inputs
         if (inputs.length == 0) { throw new Error(ERR_NO_INPUTS) } // happens sometimes rather than error
         return WebMidi.inputs
     })
     .catch((err) => {
+        if (!navigator.requestMIDIAccessa){ 
+            throw new Error(ERR_NO_MIDI)
+        }
+        
         console.error(err.message)
         throw new Error(ERR_NO_INPUTS)
     })
