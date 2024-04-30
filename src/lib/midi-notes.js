@@ -1,5 +1,6 @@
 import { writable } from 'svelte/store'
 import { WebMidi } from 'webmidi'
+const env = await import('$env/static/public') // dynamic as not defined in local dev
 
 export const notes = writable({})
 
@@ -36,22 +37,24 @@ function throwAlert(type, message) {
 }
 
 const ERR_NO_MIDI = "Your web browser doesn't support MIDI. Try another like Chrome, Firefox or Edge."
+const options = { validation: !env.PUBLIC_IS_LIVE /* speedup - not for dev - set on hosting */ } // options.software]
+console.log(options)
 const ERR_NO_INPUTS = "No MIDI devices were detected, you may need to refresh or restart your browser."
-export const midiReady = WebMidi.enable({/*validation: false // speedup - not for dev*/ })
+export const midiReady = WebMidi.enable(options)
     .then((e) => {
-        if (!navigator.requestMIDIAccess){ 
-            throw ""
+        if (!navigator.requestMIDIAccess) { // safari in particular has no MIDI support
+            throw "" // jump to catch handler below
         }
-        
+
         const inputs = WebMidi.inputs
         if (inputs.length == 0) { throw new Error(ERR_NO_INPUTS) } // happens sometimes rather than error
         return WebMidi.inputs
     })
     .catch((err) => {
-        if (!navigator.requestMIDIAccess){ 
+        if (!navigator.requestMIDIAccess) {
             throw new Error(ERR_NO_MIDI)
         }
-        
+
         console.error(err.message)
         throw new Error(ERR_NO_INPUTS)
     })
