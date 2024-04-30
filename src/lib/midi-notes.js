@@ -1,11 +1,6 @@
 import { writable } from 'svelte/store'
 import { WebMidi } from 'webmidi'
-
-async function isLive() {
-    // top level await is fairly new browser feature
-    const env = await import('$env/static/public') // dynamic as not defined in local dev
-    return env.PUBLIC_IS_LIVE  // set in netlfy hosting only
-}
+import * as env from '$env/static/public'  // * as can be undefined causing abort
 
 export const notes = writable({})
 
@@ -41,10 +36,12 @@ function throwAlert(type, message) {
     }))
 }
 
+
 const ERR_NO_MIDI = "Your web browser doesn't support MIDI. Try another like Chrome, Firefox or Edge."
-const options = { validation: !isLive() /* speedup - not for dev - set on hosting */ } // options.software]
-console.log(options)
 const ERR_NO_INPUTS = "No MIDI devices were detected, you may need to refresh or restart your browser."
+
+const options = { validation: !env.PUBLIC_IS_LIVE /* speedup - not for dev - set on hosting */ } // options.software]
+console.log(options)
 export const midiReady = WebMidi.enable(options)
     .then((e) => {
         if (!navigator.requestMIDIAccess) { // safari in particular has no MIDI support
