@@ -39,9 +39,7 @@ function throwAlert(type, message) {
 
 const ERR_NO_MIDI = "Your web browser doesn't support MIDI. Try another like Chrome, Firefox or Edge."
 const ERR_NO_INPUTS = "No MIDI devices were detected, you may need to refresh or restart your browser."
-
 const options = { validation: !env.PUBLIC_IS_LIVE /* speedup - not for dev - set on hosting */ } // options.software]
-console.log(options)
 export const midiReady = WebMidi.enable(options)
     .then((e) => {
         if (!navigator.requestMIDIAccess) { // safari in particular has no MIDI support

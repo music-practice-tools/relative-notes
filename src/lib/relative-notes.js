@@ -77,8 +77,8 @@ export const majorTonic = writable()
 export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic], _, update) => {
     update((prev) => {
         const name = $notes.identifier ?? ''
-        const step = simplify(distance($majorTonic, name))
-        const _semitones = semitones(step)
+        const interval = simplify(distance($majorTonic, name))
+        const _semitones = semitones(interval)
         const delta = prev.name ? distance(prev.name, name) : ''
         const dir = getInterval(delta).dir
         const direction = Number.isNaN(dir) ? 0 : dir
@@ -86,12 +86,11 @@ export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic]
         return {
             raw: $notes,
             name: name,
-            pitchClass2: $notes.name + $notes.accidental,
             pitchClass: pitchClass(name),
-            step,
-            solfege: step ? solfegeSyllables[_semitones] : '',
-            numerical: step ? numericals[_semitones] : '',
-            roman: step ? roman[_semitones] : '',
+            interval,
+            solfege: interval ? solfegeSyllables[_semitones] : '',
+            numerical: interval ? numericals[_semitones] : '',
+            roman: interval ? roman[_semitones] : '',
             majorTonic: $majorTonic,
             delta,
             deltaDir: direction
