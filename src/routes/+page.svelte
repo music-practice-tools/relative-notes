@@ -7,7 +7,8 @@
 
   document.title = 'Relative Notes'
 
-  const tonics = 'C C# D D# E F F# G G# A A# B B#'.split(' ')
+  //    const tonics = 'C Db D Eb E F F# Gb G Ab A Bb B'.split(' ')
+  const tonics = 'C C# D D# E F F# G G# A A# B B#'.split(' ') // web midi provides #
   const delta = { '-1': '↓', '0': '', '1': '↑' }
 </script>
 

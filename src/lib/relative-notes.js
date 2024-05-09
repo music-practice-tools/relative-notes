@@ -3,60 +3,19 @@ import { get as getInterval, semitones, simplify, distance } from '@tonaljs/inte
 import { pitchClass } from '@tonaljs/note'
 import { notes } from '$lib/midi-notes'
 
+const acc = { '-1': 'b', '0': '', '1': '#' }
+
 const solfegeSyllables = [
-    'Do',
-    'Di',
-    'Re',
-    'Ri',
-    'Mi',
-    'Fa',
-    'Fi',
-    'So',
-    'Si',
-    'La',
-    'Li',
-    'Ti',
+    { '-1': '', '0': 'Do', '1': 'Di' },
+    { '-1': 'Ra', '0': 'Re', '1': 'Ri' },
+    { '-1': 'Me', '0': 'Mi', '1': '' },
+    { '-1': '', '0': 'Fa', '1': 'Fi' },
+    { '-1': 'Se', '0': 'So', '1': 'Si' },
+    { '-1': 'Le', '0': 'La', '1': 'Li' },
+    { '-1': 'Te', '0': 'Ti', '1': '' }
 ]
 
-const solfegeEnharmonics = {
-    'Di': 'Ra',
-    'Ri': 'Me',
-    'Fi': 'Se',
-    'Si': 'Le',
-    'Li': 'Te',
-}
-
-const numericals = [
-    '1',
-    '#1',
-    '2',
-    '#2',
-    '3',
-    '4',
-    '#4',
-    '5',
-    '#5',
-    '6',
-    '#6',
-    '7',
-]
-const numericalEnharmonics = {
-    '#1': 'b2',
-    '#2': 'b3',
-    '#4': 'b5',
-    '#5': 'b6',
-    '#6': 'b7',
-}
-
-const roman = 'I #I II #II III IV #IV V #V VI #VI VII'.split(' ')
-
-const romanEnharmonics = {
-    '#I': 'bII',
-    '#II': 'bII',
-    '#IV': 'bV',
-    '#V': 'bVI',
-    '#VI': 'bVII',
-}
+const roman = 'I II III IV V VI VII'.split(' ')
 
 /*function enharmonic(mode) {
     const flats = mode == 'Solfège', 'Nashville', 'Roman'
@@ -81,19 +40,23 @@ export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic]
         const _semitones = semitones(interval)
         const delta = prev.name ? distance(prev.name, name) : ''
         const dir = getInterval(delta).dir
-        const direction = Number.isNaN(dir) ? 0 : dir
+        const deltaDir = Number.isNaN(dir) ? 0 : dir
+
+        const intv = getInterval(interval)
+        const step = intv.empty ? -1 : intv.step
+        const alt = acc[intv.alt]
 
         return {
             raw: $notes,
             name: name,
             pitchClass: pitchClass(name),
             interval,
-            solfege: interval ? solfegeSyllables[_semitones] : '',
-            numerical: interval ? numericals[_semitones] : '',
-            roman: interval ? roman[_semitones] : '',
+            solfege: !intv.empty ? `${solfegeSyllables[step][intv.alt]}` : '',
+            numerical: !intv.empty ? `${alt}${step + 1}` : '',
+            roman: !intv.empty ? `${alt}${roman[step]}` : '',
             majorTonic: $majorTonic,
             delta,
-            deltaDir: direction
+            deltaDir
         }
     })
 }, {})
