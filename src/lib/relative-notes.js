@@ -35,7 +35,6 @@ export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic]
         const step = intv.empty ? -1 : intv.step
         const alt = acc[intv.alt]
 
-        console.log(getInterval(simplify(distance('D#', 'D'))))
         return {
             raw: $notes,
             name: name,
