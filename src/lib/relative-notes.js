@@ -1,5 +1,5 @@
 import { writable, derived } from 'svelte/store'
-import { get as getInterval, semitones, simplify, distance } from '@tonaljs/interval'
+import { get as getInterval, simplify, distance } from '@tonaljs/interval'
 import { pitchClass } from '@tonaljs/note'
 import { notes } from '$lib/midi-notes'
 
@@ -17,27 +17,16 @@ const solfegeSyllables = [
 
 const roman = 'I II III IV V VI VII'.split(' ')
 
-/*function enharmonic(mode) {
-    const flats = mode == 'Solfège', 'Nashville', 'Roman'
-
-    return (note, direction) => {
-        useFlats =
-            mode == 'Melody' && direction == -1 ||
-            mode == 'Flat'
-
-        return useFlats ? flats[note] ?? note : note
-    }
+function octaveInterval(interval) {
+    const ival = getInterval(simplify(interval))
+    return ival.num == '8' && ival.q == 'd' ? '7M' : ival.name // restrict to single octave
 }
-const solfegeEnharmonic = enharmonic(solfegeEnharmonics)
-const numericalEnharmonic = enharmonic(numericalEnharmonics)
-const romanEnharmonic = enharmonic(romanEnharmonics)
-*/
+
 export const majorTonic = writable()
 export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic], _, update) => {
     update((prev) => {
         const name = $notes.identifier ?? ''
-        const interval = simplify(distance($majorTonic, name))
-        const _semitones = semitones(interval)
+        const interval = octaveInterval(distance($majorTonic, name))
         const delta = prev.name ? distance(prev.name, name) : ''
         const dir = getInterval(delta).dir
         const deltaDir = Number.isNaN(dir) ? 0 : dir
@@ -46,6 +35,7 @@ export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic]
         const step = intv.empty ? -1 : intv.step
         const alt = acc[intv.alt]
 
+        console.log(getInterval(simplify(distance('D#', 'D'))))
         return {
             raw: $notes,
             name: name,
