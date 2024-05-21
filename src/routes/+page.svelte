@@ -23,7 +23,7 @@
   </header>
   <nav>
     <p>
-      <a href="/about">About</a>
+      <a href="/about" data-sveltekit-reload>About</a>
     </p>
   </nav>
   <Settings></Settings>
@@ -72,17 +72,6 @@
 </div>
 
 <style>
-  :global(:root) {
-    --background-color: #242424;
-    --color: #ffffff;
-    --highlight-color: lightblue;
-    --link-color: #858bff;
-    background-color: var(--background-color);
-    color: var(--color);
-    font-family: Sans-Serif;
-    color-scheme: light dark;
-  }
-
   /*  :global(body) {
     margin: 0;
     display: flex;
@@ -161,11 +150,4 @@
     height: 14rem;
   }
 
-  @media (prefers-color-scheme: light) {
-    :global(:root) {
-      --background-color: #ffffff;
-      --color: #242424;
-      --highlight-color: darkblue;
-    }
-  }
 </style>

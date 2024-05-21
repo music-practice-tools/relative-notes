@@ -4,7 +4,9 @@
 
 <h1>About Relative Notes</h1>
 <p>
-  <a href="/">Back to App</a>
+  <a
+    href="/"
+    data-sveltekit-reload>Back to App</a>
 </p>
 
 <p>
@@ -54,23 +56,3 @@
     style="border: 0px; height: 36px"
     src={kofi}
     alt="Support Steve at ko-fi.com" /></a>
-
-<style>
-  /* In theory we should not need to repeat these global styles */
-
-  :global(:root) {
-    background-color: #242424;
-    color: #ffffff;
-    font-family: Sans-Serif;
-    color-scheme: light dark;
-    --highlight-color: lightblue;
-  }
-
-  @media (prefers-color-scheme: light) {
-    :global(:root) {
-      color: #242424;
-      background-color: #ffffff;
-      --highlight-color: darkblue;
-    }
-  }
-</style>
