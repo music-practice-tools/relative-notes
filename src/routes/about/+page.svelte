@@ -14,10 +14,12 @@
   2 or ii) to identify its distance from a tonic note as apposed to using fixed pitch
   musical note names (D). Then the pitches can be more easily applied in any Key.
 </p>
+<p>Here's a short <a href="https://www.youtube.com/watch?v=4kNCYW4tiGQ)">demo video</a>.</p>
 <p>
   The app monitors MIDI 'noteon' messages coming from external or virtual MIDI
-  devices and displays the appropriate syllable or number. It also display some
-  extra detail.
+  devices and displays the appropriate syllable or number. 
+  It also shows the notes on an <a href="https://improviseforreal.com/">Improvise for Real</a> tonal map diagram as well as some
+  extra detail on the input note.
 </p>
 <p>
   The original use case was to confirm the relative syllable or number in mind
