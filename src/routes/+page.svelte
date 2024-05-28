@@ -23,7 +23,9 @@
   </header>
   <nav>
     <p>
-      <a href="/about" data-sveltekit-reload>About</a>
+      <a
+        href="/about"
+        data-sveltekit-reload>About</a>
     </p>
   </nav>
   <Settings></Settings>
@@ -48,8 +50,12 @@
         <div id="note">{$relativeNotes.solfege}</div>
       {:else if $settings.system === 'Nashville'}
         <div id="note">{$relativeNotes.numerical}</div>
-      {:else}
+      {:else if $settings.system === 'Roman'}
         <div id="note">{$relativeNotes.roman}</div>
+      {:else if $settings.system === 'Sargam'}
+        <div id="note">{$relativeNotes.sargam}</div>
+      {:else}
+        <div id="note"></div>
       {/if}
 
       <div id="detail">
@@ -149,5 +155,4 @@
     margin-left: 3rem;
     height: 14rem;
   }
-
 </style>

@@ -3,7 +3,7 @@
   import { midiReady, listen } from '$lib/midi-notes'
   import { settings } from '$lib/settings.js'
 
-  const systemValues = ['Solfège', 'Nashville', 'Roman']
+  const systemValues = ['Solfège', 'Nashville', 'Roman', 'Sargam']
   //  const chromaticsValues = ['Melody', 'Lower', 'Raise']
 
   midiReady.then(() => {

@@ -15,6 +15,16 @@ const solfegeSyllables = [
     { '-1': 'Te', '0': 'Ti', '1': '' }
 ]
 
+const sargamSyllables = [
+    { '-1': '', '0': 'Sa', '1': 'Re' },
+    { '-1': 'Re', '0': 'Re', '1': 'Ga' },
+    { '-1': 'Ga', '0': 'Ga', '1': '' },
+    { '-1': '', '0': 'Ma', '1': 'Ma' },
+    { '-1': 'Ma', '0': 'Pa', '1': 'Dha' },
+    { '-1': 'Dha', '0': 'Dha', '1': 'Ni' },
+    { '-1': 'Ni', '0': 'Ni', '1': '' }
+]
+
 const roman = 'I II III IV V VI VII'.split(' ')
 
 function octaveInterval(interval) {
@@ -41,6 +51,7 @@ export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic]
             pitchClass: pitchClass(name),
             interval,
             solfege: !intv.empty ? `${solfegeSyllables[step][intv.alt]}` : '',
+            sargam: !intv.empty ? `${sargamSyllables[step][intv.alt]}` : '',
             numerical: !intv.empty ? `${alt}${step + 1}` : '',
             roman: !intv.empty ? `${alt}${roman[step]}` : '',
             majorTonic: $majorTonic,
