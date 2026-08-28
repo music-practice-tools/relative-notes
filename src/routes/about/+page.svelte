@@ -11,24 +11,30 @@
 
 <p>
   <strong>Relative Notes</strong> is a web app for musical training using Solfège,
-  Nashville or Roman numbering. Ear training or learning tunes, for example, work
-  best using one of these relative symbol systems. Each note is given a symbol (Re,
-  2 or ii) to identify its distance from a tonic note as apposed to using fixed pitch
-  musical note names (D). Then the pitches can be more easily applied in any Key.
+  Nashville or Roman numbering. Ear training or learning tunes often work best using
+  one of these relative symbol systems. Each note is given a symbol (Re, 2 or ii)
+  to identify its distance from a tonic note as apposed to using fixed pitch musical
+  note names (D). Then the pitches can be more easily recognised, sung and applied
+  in any Key.
 </p>
-<p>Here's a short <a href="https://www.youtube.com/watch?v=4kNCYW4tiGQ)">demo video</a>.</p>
+<p>
+  Here's a short <a href="https://www.youtube.com/watch?v=4kNCYW4tiGQ)"
+    >demo video</a
+  >.
+</p>
 <p>
   The app monitors MIDI 'noteon' messages coming from external or virtual MIDI
-  devices and displays the appropriate syllable or number. 
-  It also shows the notes on an <a href="https://improviseforreal.com/">Improvise for Real</a> tonal map diagram as well as some
-  extra detail on the input note.
+  devices and displays the appropriate syllable or number. It also shows the
+  notes on an <a href="https://improviseforreal.com/">Improvise for Real</a> tonal
+  map diagram as well as some extra detail on the input note. The current note can
+  be set as the tonic and then future notes will be relative to that.
 </p>
 <p>
-  The original use case was to confirm the relative syllable or number in mind
-  matches what is being played. You can even check what is being sung when used
-  in conjunction with a Pitch to MIDI converter such as <a
-    href="https://vochlea.com/">Dubler</a
-  >.
+  The original use case was for my ear training to confirm the pitch I sang was
+  correct, and I had the right solfege syllable or number in mind (though that
+  is not checked). matches what is being played. I used the excellent<a
+    href="https://vochlea.com/">Dubler</a> Pitch to MIDI converter. Dubler is set
+  for MIDI out so this app can see the MDI stream as it is sung.
 </p>
 <p>
   Note you will need to enable MIDI access for the browser when asked. In
