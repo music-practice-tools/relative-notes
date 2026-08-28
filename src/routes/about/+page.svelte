@@ -18,8 +18,10 @@
 </p>
 <p>
   Here's a short <a href="https://www.youtube.com/watch?v=CsQQuxrUV9E)"
-    >demo video</a
-  >. Note Dubler seems to now be directly selectable as the MIDI source.
+    >demo video</a>
+  (Note Dubler is now directly selectable as the MIDI source). And my
+  <a href="https://blog.fullmeasure.uk/2024/04/25/relative-notes-tool/"
+    >blog post</a> about it.
 </p>
 <p>
   The app monitors MIDI 'noteon' messages coming from external or virtual MIDI
