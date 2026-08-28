@@ -8,19 +8,18 @@
     href="/"
     data-sveltekit-reload>Back to App</a>
 </p>
-
 <p>
-  <strong>Relative Notes</strong> is a web app for musical training using Solfège,
-  Nashville or Roman numbering. Ear training or learning tunes often work best using
-  one of these relative symbol systems. Each note is given a symbol (Re, 2 or ii)
-  to identify its distance from a tonic note as apposed to using fixed pitch musical
-  note names (D). Then the pitches can be more easily recognised, sung and applied
-  in any Key.
+  <strong>Relative Notes</strong> is a web app for musical relative pitch training
+  with Solfège, Nashville or Roman numbering. Ear training or learning tunes often
+  work best using one of these relative symbol systems. Each note is given a symbol
+  (Re, 2 or ii) to identify its distance from a tonic note as apposed to using fixed
+  pitch musical note names (D). Using these scale functions means the pitches can
+  be more easily recognised, sung and applied in any Key.
 </p>
 <p>
-  Here's a short <a href="https://www.youtube.com/watch?v=4kNCYW4tiGQ)"
+  Here's a short <a href="https://www.youtube.com/watch?v=CsQQuxrUV9E)"
     >demo video</a
-  >.
+  >. Note Dubler seems to now be directly selectable as the MIDI source.
 </p>
 <p>
   The app monitors MIDI 'noteon' messages coming from external or virtual MIDI
@@ -29,18 +28,26 @@
   map diagram as well as some extra detail on the input note. The current note can
   be set as the tonic and then future notes will be relative to that.
 </p>
+<h2>Sung Pitch recognition with Dubler 2</h2>
 <p>
-  The original use case was for my ear training to confirm the pitch I sang was
-  correct, and I had the right solfege syllable or number in mind (though that
-  is not checked). matches what is being played. For this I also used the
-  excellent <a href="https://vochlea.com/">Dubler</a> Pitch to MIDI converter. Dubler
-  is set for MIDI out so this app can see the MDI stream as it is sung.
+  I originally created Relative-Notes due to the lack of pitch tools that handle
+  relative pitch. Specifically, as I worked on ear training I wanted something
+  to confirm the scale functions I sang were as expected, for various keys. Due
+  to the lacks of good voice pitch recognition components for web apps I used
+  the excellent <a href="https://vochlea.com/">Dubler</a> Pitch to MIDI converter.
+  This app processes the MIDI out stream from Dubler.
 </p>
 <p>
-  Note you will need to enable MIDI access for the browser when asked. In
-  addition, when MIDI devices are connected or virtual midi programs launched
-  the browser will likely need to be refreshed (F5) or restarted in order for
-  them to become available.
+  Start Dubler first and then select it as the MIDI source in the web app. I
+  found lowering the Dubler 'Stickiness' setting gives better results as my
+  pitch varies as I sing a note.
+</p>
+<h2>Usage Notes</h2>
+<p>
+  You will need to enable MIDI access for the browser when asked. In addition,
+  when MIDI devices are connected or virtual midi programs launched the browser
+  will likely need to be refreshed (F5) or restarted in order for them to become
+  available.
 </p>
 <p>
   When using virtual MIDI devices (programs that generate MIDI) on Windows you
@@ -48,7 +55,6 @@
     href="https://www.tobias-erichsen.de/software/loopmidi.html">loopMidi</a
   >.
 </p>
-
 <p>
   This is a Music Practice Tools <a
     href="https://github.com/music-practice-tools/relative-notes"
