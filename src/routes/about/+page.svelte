@@ -19,7 +19,7 @@
 <p>
   Here's a short <a href="https://www.youtube.com/watch?v=CsQQuxrUV9E)"
     >demo video</a>
-  (Note Dubler is now directly selectable as the MIDI source). And my
+  and my
   <a href="https://blog.fullmeasure.uk/2024/04/25/relative-notes-tool/"
     >blog post</a> about it.
 </p>
@@ -55,7 +55,7 @@
   When using virtual MIDI devices (programs that generate MIDI) on Windows you
   might need a virtual MIDI cable such as <a
     href="https://www.tobias-erichsen.de/software/loopmidi.html">loopMidi</a
-  >.
+  >. Though Dubler seems to now be directly selectable as the MIDI source.
 </p>
 <p>
   This is a Music Practice Tools <a
