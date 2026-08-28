@@ -55,7 +55,8 @@
   When using virtual MIDI devices (programs that generate MIDI) on Windows you
   might need a virtual MIDI cable such as <a
     href="https://www.tobias-erichsen.de/software/loopmidi.html">loopMidi</a
-  >. Though Dubler seems to now be directly selectable as the MIDI source.
+  >. Though Dubler seems to now be directly selectable as the MIDI source on
+  Mac.
 </p>
 <p>
   This is a Music Practice Tools <a
