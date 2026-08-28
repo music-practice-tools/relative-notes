@@ -32,9 +32,9 @@
 <p>
   The original use case was for my ear training to confirm the pitch I sang was
   correct, and I had the right solfege syllable or number in mind (though that
-  is not checked). matches what is being played. I used the excellent<a
-    href="https://vochlea.com/">Dubler</a> Pitch to MIDI converter. Dubler is set
-  for MIDI out so this app can see the MDI stream as it is sung.
+  is not checked). matches what is being played. For this I also used the
+  excellent <a href="https://vochlea.com/">Dubler</a> Pitch to MIDI converter. Dubler
+  is set for MIDI out so this app can see the MDI stream as it is sung.
 </p>
 <p>
   Note you will need to enable MIDI access for the browser when asked. In
