@@ -42,7 +42,7 @@
 <p>
   Start Dubler first and then select it as the MIDI source in the web app. I
   found lowering the Dubler 'Stickiness' setting gives better results as my
-  pitch varies as I sing a note.
+  pitch varies as I sing a note. Also select 'C' and Chromatic in the Play tab.
 </p>
 <h2>Usage Notes</h2>
 <p>
