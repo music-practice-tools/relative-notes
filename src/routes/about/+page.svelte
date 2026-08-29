@@ -32,7 +32,7 @@
 </p>
 <h2>Sung Pitch recognition with Dubler 2</h2>
 <p>
-  I originally created Relative-Notes due to the lack of pitch that handle
+  I originally created Relative-Notes due to the lack of tools that handle
   relative pitch. Specifically, as I worked on ear training I wanted something
   to confirm the scale functions I sang were as expected. Due to the lacks of
   good voice pitch recognition components for web apps I used the excellent <a
@@ -40,9 +40,9 @@
   a MIDI app.
 </p>
 <p>
-  Start Dubler first and then select it as the MIDI source in the web app. I
-  found lowering the Dubler 'Stickiness' setting gives better results as my
-  pitch varies as I sing a note. Also select 'C' and Chromatic in the Play tab.
+  Start Dubler first and then select it as the Web app's MIDI source. I found
+  lowering the Dubler 'Stickiness' setting gives better results as my pitch
+  varies as I sing a note. Also select 'C' and Chromatic in the Play tab.
 </p>
 <h2>Usage Notes</h2>
 <p>

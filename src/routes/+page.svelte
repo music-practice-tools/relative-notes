@@ -14,11 +14,15 @@
 
 <div id="app">
   <header>
-    <img
-      src={logo}
-      title="Relative Notes"
-      class="logo"
-      alt="logo" />
+    <a
+      href="/"
+      class="logo-link">
+      <img
+        src={logo}
+        title="Relative Notes"
+        class="logo"
+        alt="logo" />
+    </a>
     <h1>{document.title}</h1>
   </header>
   <nav>
@@ -101,6 +105,13 @@
   .logo {
     height: 4em;
     will-change: filter;
+  }
+
+  .logo-link {
+    margin-left: 0;
+    text-decoration: none;
+    display: inline-flex;
+    line-height: 0;
   }
 
   header {
