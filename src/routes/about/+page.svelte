@@ -24,37 +24,36 @@
     >blog post</a> about it.
 </p>
 <p>
-  The app monitors MIDI 'noteon' messages coming from external or virtual MIDI
-  devices and displays the appropriate syllable or number. It also shows the
-  notes on an <a href="https://improviseforreal.com/">Improvise for Real</a> tonal
-  map diagram as well as some extra detail on the input note. The current note can
-  be set as the tonic and then future notes will be relative to that.
+  The app monitors notes sung into a microphone or MIDI 'noteon' messages coming
+  from external or virtual MIDI devices. It then displays the appropriate
+  syllable or number for the nore relative to a tonic note. It also shows the
+  (major) scale functions on an <a href="https://improviseforreal.com/"
+    >Improvise for Real</a> tonal map diagram as well as some extra detail on the
+  input note. The current note can be set as the tonic and then future notes will
+  be relative to that.
 </p>
-<h2>Sung Pitch recognition with Dubler 2</h2>
+<h2>Sung Pitch recognition</h2>
 <p>
   I originally created Relative-Notes due to the lack of tools that handle
-  relative pitch. Specifically, as I worked on ear training I wanted something
-  to confirm the scale functions I sang were as expected. Due to the lacks of
-  good voice pitch recognition components for web apps I used the excellent <a
-    href="https://vochlea.com/">Dubler</a> Pitch to MIDI converter as source for
-  a MIDI app.
+  relative pitch for ear training. Specifically, I wanted something to confirm
+  the scale functions I sang were as expected.
 </p>
 <p>
-  Start Dubler first and then select it as the Web app's MIDI source. I found
-  lowering the Dubler 'Stickiness' setting gives better results as my pitch
-  varies as I sing a note. Also select 'C' and Chromatic in the Play tab.
+  There is a built in pitch converter that works fairly well. or your can use
+  something like the excellent <a href="https://vochlea.com/">Dubler</a> Pitch to
+  MIDI converter as source.
 </p>
 <h2>Usage Notes</h2>
 <p>
-  You will need to enable MIDI access for the browser when asked. In addition,
-  when MIDI devices are connected or virtual midi programs launched the browser
-  will likely need to be refreshed (F5) or restarted in order for them to become
-  available snd work.
+  You will need to enable microphone or MIDI access for the browser when asked.
+  In addition, when MIDI devices are connected or virtual midi programs launched
+  the browser will likely need to be refreshed (F5) or restarted in order for
+  them to become available snd work. Sometimes you may need to use browser
+  controls to reset the mic or midi access so you can select another source.
 </p>
 <p>
-  Dubler is directly selectable as the MIDI source on Mac but When using such
-  virtual MIDI devices (programs that generate MIDI) on Windows you might need a
-  virtual MIDI cable such as <a
+  When using such virtual MIDI devices (programs that generate MIDI) on Windows
+  you might need a virtual MIDI cable such as <a
     href="https://www.tobias-erichsen.de/software/loopmidi.html">loopMidi</a
   >. Maybe the upcoming MIDI 2.0 support in Windows will fix this?
 </p>

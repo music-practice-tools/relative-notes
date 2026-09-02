@@ -27,6 +27,25 @@ const sargamSyllables = [
 
 const roman = 'I II III IV V VI VII'.split(' ')
 
+// Major-scale mapping of a 0–11 semitone offset to a diatonic step + alteration.
+// The accidental here is interval *quality* (minor → flat, augmented → sharp),
+// independent of the user's note-name spelling preference. `step` is 0-indexed
+// (0 = 1, 6 = 7) and `alt` is -1 (flat), 0 (natural) or 1 (sharp).
+const semitoneDegrees = [
+    { step: 0, alt: 0 }, // 0  unison
+    { step: 1, alt: -1 }, // 1  minor 2nd (b2)
+    { step: 1, alt: 0 }, // 2  major 2nd
+    { step: 2, alt: -1 }, // 3  minor 3rd (b3)
+    { step: 2, alt: 0 }, // 4  major 3rd
+    { step: 3, alt: 0 }, // 5  perfect 4th
+    { step: 3, alt: 1 }, // 6  augmented 4th (#4)
+    { step: 4, alt: 0 }, // 7  perfect 5th
+    { step: 5, alt: -1 }, // 8  minor 6th (b6)
+    { step: 5, alt: 0 }, // 9  major 6th
+    { step: 6, alt: -1 }, // 10 minor 7th (b7)
+    { step: 6, alt: 0 }, // 11 major 7th
+]
+
 function octaveInterval(interval) {
     const ival = getInterval(simplify(interval))
     return ival.num == '8' && ival.q == 'd' ? '7M' : ival.name // restrict to single octave
@@ -42,21 +61,25 @@ export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic]
         const deltaDir = Number.isNaN(dir) ? 0 : dir
 
         const intv = getInterval(interval)
-        const step = intv.empty ? -1 : intv.step
-        const alt = acc[intv.alt]
+        const degree = !intv.empty ? semitoneDegrees[((intv.semitones % 12) + 12) % 12] : null
+        const step = intv.empty ? -1 : degree.step
+        const altKey = intv.empty ? 0 : degree.alt
+        const alt = acc[altKey]
 
         return {
             raw: $notes,
             name: name,
             pitchClass: pitchClass(name),
             interval,
-            solfege: !intv.empty ? `${solfegeSyllables[step][intv.alt]}` : '',
-            sargam: !intv.empty ? `${sargamSyllables[step][intv.alt]}` : '',
+            solfege: !intv.empty ? `${solfegeSyllables[step][altKey]}` : '',
+            sargam: !intv.empty ? `${sargamSyllables[step][altKey]}` : '',
             numerical: !intv.empty ? `${alt}${step + 1}` : '',
             roman: !intv.empty ? `${alt}${roman[step]}` : '',
             majorTonic: $majorTonic,
             delta,
-            deltaDir
+            deltaDir,
+            step,
+            altKey
         }
     })
 }, {})

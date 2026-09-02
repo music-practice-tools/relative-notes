@@ -6,6 +6,7 @@
     --color: #ffffff;
     --highlight-color: lightblue;
     --link-color: #858bff;
+    --status-color: #fbbf24;
     background-color: var(--background-color);
     color: var(--color);
     font-family: Sans-Serif;
@@ -17,6 +18,7 @@
       --background-color: #ffffff;
       --color: #242424;
       --highlight-color: darkblue;
+      --status-color: #b45309;
     }
   }
 </style>

@@ -2,14 +2,30 @@
   import { relativeNotes, majorTonic } from '$lib/relative-notes'
   import Settings from '$lib/Settings.svelte'
   import { settings } from '$lib/settings.js'
+  import { midiToName, nameToPc } from '$lib/pitch/notes'
   import logo from '$lib/assets/logo-512x512.png'
   import IFRTonalMap from '$lib/IFRTonalMap.svelte'
 
   document.title = 'Relative Notes'
 
-  //    const tonics = 'C Db D Eb E F F# Gb G Ab A Bb B'.split(' ')
-  const tonics = 'C C# D D# E F F# G G# A A# B B#'.split(' ') // web midi provides #
   const delta = { '-1': '↓', '0': '', '1': '↑' }
+
+  $: tonics = ($settings.accidental === 'flat'
+    ? 'C Db D Eb E F Gb G Ab A Bb B'
+    : 'C C# D D# E F F# G G# A A# B').split(' ')
+
+  // Show ♭/♯ glyphs in the dropdown while keeping the stored value ASCII
+  // ("Db"/"C#") so Tonal's distance() and nameToPc() keep working.
+  const tonicLabel = (note) => note.replace('b', '♭').replace('#', '♯')
+
+  // Re-spell the selected tonic when the accidental preference changes.
+  $: if ($settings.accidental && $majorTonic) {
+    const pc = nameToPc($majorTonic)
+    if (pc != null) {
+      const respelled = midiToName(pc, $settings.accidental)
+      if (respelled !== $majorTonic) majorTonic.set(respelled)
+    }
+  }
 </script>
 
 <div id="app">
@@ -38,7 +54,7 @@
       Major Tonic:
       <select bind:value={$majorTonic}>
         {#each tonics as note}
-          <option>{note}</option>
+          <option value={note}>{tonicLabel(note)}</option>
         {/each}
       </select>
     </label>
@@ -76,7 +92,7 @@
     </div>
 
     <div id="ifrMap">
-      <IFRTonalMap interval={$relativeNotes.interval} />
+      <IFRTonalMap step={$relativeNotes.step} alt={$relativeNotes.altKey} />
     </div>
   </div>
 </div>
