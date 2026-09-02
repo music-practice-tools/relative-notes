@@ -151,7 +151,6 @@
     height: 14rem;
     font-size: 12rem;
     padding: 0.2rem;
-    color: -var(highlight-color);
   }
 
   #tonic,

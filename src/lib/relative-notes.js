@@ -58,7 +58,7 @@ export const relativeNotes = derived([notes, majorTonic], ([$notes, $majorTonic]
         const interval = octaveInterval(distance($majorTonic, name))
         const delta = prev.name ? distance(prev.name, name) : ''
         const dir = getInterval(delta).dir
-        const deltaDir = Number.isNaN(dir) ? 0 : dir
+        const deltaDir = dir ?? 0
 
         const intv = getInterval(interval)
         const degree = !intv.empty ? semitoneDegrees[((intv.semitones % 12) + 12) % 12] : null

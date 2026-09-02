@@ -9,14 +9,14 @@ export const notes = writable({})
 let currentInput
 export function listen(input) {
     if (!input) { return }
+    const _input = WebMidi.getInputByName(input)
+    if (!_input) { return }
     if (currentInput) {
         try {
             WebMidi.getInputByName(currentInput).removeListener() // remove from all channels
         } catch (e) { /* don't care */ }
     }
     currentInput = input
-    const _input = WebMidi.getInputByName(input)
-    if (!_input) { return }
     _input.addListener(
         'noteon', // all channels
         (e) => {
@@ -66,6 +66,7 @@ export function enableMidi() {
                 return WebMidi.inputs
             })
             .catch((err) => {
+                midiReadyPromise = null
                 if (!navigator.requestMIDIAccess) {
                     throw new Error(ERR_NO_MIDI)
                 }

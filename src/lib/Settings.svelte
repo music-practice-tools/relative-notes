@@ -95,6 +95,7 @@
   function switchSource(source) {
     if (source === 'Microphone') {
       stopMic()
+      unlisten()
       midiError = null
     } else {
       useMidi()
@@ -107,7 +108,6 @@
 
   onDestroy(() => {
     stopVoice()
-    settings.unsubscribe()
   })
 </script>
 
