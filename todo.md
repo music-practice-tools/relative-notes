@@ -39,3 +39,17 @@ export const ssr = false
 - **Formatting**: `npx prettier --check` reports 11 non-`lib/pitch` files unformatted (including `relative-notes.js`, `settings.js`, `voice.js`, `Settings.svelte`, `+page.svelte`, etc.) despite a `format` script existing. Not a bug, but the tree isn't format-clean.
 - **`$env/static/public` comment** (`midi-notes.js:3,54`): `PUBLIC_IS_LIVE` is undefined with no `.env`, so `validation: true` in dev. It must be explicitly set on hosting for `validation: false` to take effect — the inline comment is cryptic about this.
 
+## Sharp/flat intonation indicator (microphone only)
+
+- The pitch engine already computes `cents` — the note's average offset from the
+  nearest equal-tempered semitone (positive = sharp, negative = flat) — in
+  `src/lib/pitch/note-tracker.js` (`payload.cents = (meanMidi - note.midi) * 100`).
+- `voice.js` `toNote()` currently drops `cents` when bridging into the shared
+  `notes` store; MIDI notes stay `cents: null` (they're quantized).
+- To add: pass `cents` through in `toNote()`, then read it in the UI as
+  `$relativeNotes.raw.cents` and render a sharp/flat marker when `|cents|`
+  exceeds a tolerance (e.g. ±10¢), otherwise "in tune".
+- Open decisions: tolerance, symbol (♯/♭ vs ↑/↓ — note ↑/↓ is already used for
+  the "Change" field), and live-updating (poll `getCurrentNote()` / a per-frame
+  hook) vs per-note (updates on note start/change only).
+

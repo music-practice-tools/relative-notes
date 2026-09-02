@@ -150,9 +150,14 @@
   }
 
   #note {
-    width: 14rem;
-    height: 14rem;
-    font-size: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 16rem;
+    height: 16rem;
+    font-size: 14rem;
+    line-height: 1;
     padding: 0.2rem;
   }
 
@@ -163,6 +168,12 @@
   }
   #tonic button {
     margin-left: 1rem;
+  }
+  #tonic select,
+  #tonic button {
+    height: 2.25rem;
+    box-sizing: border-box;
+    vertical-align: middle;
   }
   #detail {
     font-size: 1.1rem;
