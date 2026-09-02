@@ -10,13 +10,14 @@
 
   const delta = { '-1': '↓', '0': '', '1': '↑' }
 
-  $: tonics = ($settings.accidental === 'flat'
-    ? 'C Db D Eb E F Gb G Ab A Bb B'
+  $: tonics = (
+    $settings.accidental === 'flat' ?
+      'C Db D Eb E F Gb G Ab A Bb B'
     : 'C C# D D# E F F# G G# A A# B').split(' ')
 
-  // Show ♭/♯ glyphs in the dropdown while keeping the stored value ASCII
-  // ("Db"/"C#") so Tonal's distance() and nameToPc() keep working.
-  const tonicLabel = (note) => note.replace('b', '♭').replace('#', '♯')
+  // Show ♭/♯ glyphs while keeping stored values ASCII ("Db"/"C#") so Tonal's
+  // distance() and nameToPc() keep working.
+  const noteLabel = (note) => (note ?? '').replace('b', '♭').replace('#', '♯')
 
   // Re-spell the selected tonic when the accidental preference changes.
   $: if ($settings.accidental && $majorTonic) {
@@ -54,13 +55,13 @@
       Major Tonic:
       <select bind:value={$majorTonic}>
         {#each tonics as note}
-          <option value={note}>{tonicLabel(note)}</option>
+          <option value={note}>{noteLabel(note)}</option>
         {/each}
       </select>
     </label>
     {#if $relativeNotes.pitchClass && $relativeNotes.pitchClass != ($majorTonic ?? '')}
       <button on:click={majorTonic.set($relativeNotes.pitchClass)}
-        >Set {$relativeNotes.pitchClass}</button>
+        >Set {noteLabel($relativeNotes.pitchClass)}</button>
     {/if}
   </div>
 
@@ -69,9 +70,9 @@
       {#if $settings.system === 'Solfège'}
         <div id="note">{$relativeNotes.solfege}</div>
       {:else if $settings.system === 'Nashville'}
-        <div id="note">{$relativeNotes.numerical}</div>
+        <div id="note">{noteLabel($relativeNotes.numerical)}</div>
       {:else if $settings.system === 'Roman'}
-        <div id="note">{$relativeNotes.roman}</div>
+        <div id="note">{noteLabel($relativeNotes.roman)}</div>
       {:else if $settings.system === 'Sargam'}
         <div id="note">{$relativeNotes.sargam}</div>
       {:else}
@@ -83,7 +84,7 @@
         {$relativeNotes.raw.channel ?? ''}
         {$relativeNotes.raw.number ?? ''}
         &nbsp;Note:
-        {$relativeNotes.name}
+        {noteLabel($relativeNotes.name)}
         {$relativeNotes.interval}
         &nbsp;Change:
         {$relativeNotes.delta}
@@ -92,7 +93,9 @@
     </div>
 
     <div id="ifrMap">
-      <IFRTonalMap step={$relativeNotes.step} alt={$relativeNotes.altKey} />
+      <IFRTonalMap
+        step={$relativeNotes.step}
+        alt={$relativeNotes.altKey} />
     </div>
   </div>
 </div>
@@ -176,9 +179,11 @@
   #note-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
   #ifrMap {
     margin-left: 3rem;
-    height: 14rem;
+    width: 6rem;
+    height: 18rem;
   }
 </style>

@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store'
 
-const defaultSettings = { system: 'Solfège', chromatics: 'Lower', accidental: 'flat', source: 'Microphone' }
+const defaultSettings = { system: 'Nashville', chromatics: 'Lower', accidental: 'flat', source: 'Microphone' }
 
 function loadSettings() {
     try {

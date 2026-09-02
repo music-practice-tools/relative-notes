@@ -138,6 +138,17 @@
   </div>
 
   <div class="setting aligned">
+    <label for="system">System:</label>
+    <select
+      id="system"
+      bind:value={$settings.system}>
+      {#each systemValues as system}
+        <option>{system}</option>
+      {/each}
+    </select>
+  </div>
+
+  <div class="setting aligned">
     <label for="accidental">Accidentals:</label>
     <select
       id="accidental"
@@ -165,17 +176,6 @@
             <option>{input.name}</option>
           {/each}
         </select>
-      </div>
-
-      <div class="setting">
-        <label>
-          System:
-          <select bind:value={$settings.system}>
-            {#each systemValues as system}
-              <option>{system}</option>
-            {/each}
-          </select>
-        </label>
       </div>
 
       <!-- 
