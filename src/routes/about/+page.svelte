@@ -9,12 +9,10 @@
     data-sveltekit-reload>Back to App</a>
 </p>
 <p>
-  <strong>Relative Notes</strong> is a web app for musical relative pitch training
-  with Solfège, Nashville or Roman numbering. Ear training or learning tunes often
-  work best using one of these relative symbol systems. Each note is given a symbol
-  (Re, 2 or ii) to identify its distance from a tonic note as apposed to using fixed
-  pitch musical note names (D). Using these scale functions means the pitches can
-  be more easily recognised, sung and applied in any Key.
+  <strong>Relative Notes</strong> is a web app for recognising the scale degree of a sung or MIDI note.</p>
+<p>A scale degrees is the musical distance or 'interval' from a refetence 'tonic' note (root) and so a relative naming scheme, compared to absolute note names like 'C'.
+</p>
+<p>This alows easy transposing between keys. It also aids ear training as the 'feel' of each degree can be learnt. The degrees can be displayed in Arabic or Roman numbers and solfege and Solfège or Sargam syllables.
 </p>
 <p>
   Here's a short <a href="https://www.youtube.com/watch?v=CsQQuxrUV9E)"
