@@ -65,13 +65,11 @@ A quiet room and good mic will give best results. some laptop mics can give poor
   >. Maybe the upcoming MIDI 2.0 support in Windows will fix this?
 </p>
 <h2>Limitations</h2>
-<p>
 <ul>
 <li>Major scale only</li>
 <li>Non diatonic notes are shown as flat (b)</li>
 <li>MIDI is polyphonic and chords show notes in rapid succession as they are received. Microphone is monophonic.</li>
 </ul>
-</p>
 <p>
   This is a Music Practice Tools <a
     href="https://github.com/music-practice-tools/relative-notes"
