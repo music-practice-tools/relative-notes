@@ -9,10 +9,13 @@
     data-sveltekit-reload>Back to App</a>
 </p>
 <p>
-  <strong>Relative Notes</strong> is a web app for recognising the scale degree of a sung note or a MIDI 'note on' message.</p>
-<p>A scale degree (AKA scale function) is the musical distance or 'interval' of a note from a reference 'tonic' note (root) of a scale. This is a relative naming scheme, compared to absolute note names like 'C'. Scale degrees of single notes here are closely related to chord function as those are defined by the chord root note.
+  <strong>Relative Notes</strong> is a web app for recognising the scale degree of a sung note or a MIDI 'note on' message.
 </p>
-<p>Using scale degrees aids ear training as the 'feel' of each degree can be learnt. It also alows easy transposing between keys of a melody or harmony. 
+<p>
+A scale degree (AKA scale function) is the musical distance or 'interval' of a note from a reference 'tonic' note (root) of a scale. This is a relative naming scheme, compared to absolute note names like 'C'. Scale degrees of single notes here are closely related to chord function as those are defined by the chord root note.
+</p>
+<p>
+Using scale degrees aids ear training as the 'feel' of each degree can be learnt. It also alows easy transposing between keys of a melody or harmony. 
 </p>
 <p>
 The app shows the currently detected scale degree as Arabic numbers, Roman numbers, Solfège or Sargam syllables.
@@ -61,14 +64,13 @@ A quiet room and good mic will give best results. some laptop mics can give poor
   you might need a virtual MIDI cable such as <a href="https://www.tobias-erichsen.de/software/loopmidi.html">loopMidi</a
   >. Maybe the upcoming MIDI 2.0 support in Windows will fix this?
 </p>
-<h2>Limitation</h2>
+<h2>Limitations</h2>
 <p>
 <ul>
 <li>Major scale only</li>
 <li>Non diatonic notes are shown as flat (b)</li>
 <li>MIDI is polyphonic and chords show notes in rapid succession as they are received. Microphone is monophonic.</li>
-<\ul>
-Major
+</ul>
 </p>
 <p>
   This is a Music Practice Tools <a
