@@ -9,10 +9,10 @@
     data-sveltekit-reload>Back to App</a>
 </p>
 <p>
-  <strong>Relative Notes</strong> is a web app for recognising the scale degree of a sung note or a MIDI 'note on' message.
+  <strong>Relative Notes</strong> is a web app for displaying the scale degree of a sung note or a MIDI 'note on' message.
 </p>
 <p>
-A scale degree (AKA scale function) is the musical distance or 'interval' of a note from a reference 'tonic' note (root) of a scale. This is a relative naming scheme, compared to absolute note names like 'C'. Scale degrees of single notes here are closely related to chord function as those are defined by the chord root note.
+A scale degree (AKA scale function) is the musical distance or 'interval' of a note from a reference 'tonic' note (root) of a scale. This is a relative naming scheme, compared to absolute note names like 'C'. Scale degrees of single notes are also relevant to chord function as those are defined by the chord root note.
 </p>
 <p>
 Using scale degrees aids ear training as the 'feel' of each degree can be learnt. It also alows easy transposing between keys of a melody or harmony. 
@@ -39,7 +39,7 @@ The app shows the currently detected scale degree as Arabic numbers, Roman numbe
 <p>
   I created Relative-Notes due to the lack of tools that handle
   relative pitch for ear training. Specifically, I wanted something to confirm
- that the scale functions I sang were as expected.
+ that the scale degrees I sang were as expected. I found that I often sang one pitch but used a different number.
 </p>
 <p>
   The built in pitch converter works well or your can use
@@ -48,7 +48,7 @@ The app shows the currently detected scale degree as Arabic numbers, Roman numbe
 </p>
 <h2>Usage Notes</h2>
 <p>
-You will need to enable microphone or MIDI access for the browser when asked.
+You will need to enable microphone or MIDI access for the browser when asked. This is a web security feature.
 </p>
 <p>
   In addition, when new microphones or MIDI devices are connected or virtual midi programs launched
@@ -57,7 +57,7 @@ You will need to enable microphone or MIDI access for the browser when asked.
   controls to reset the mic or midi access so you can select another source.
 </p>
 <p>
-A quiet room and good mic will give best results. some laptop mics can give poor results.
+A quiet room and good mic, ideally close to your mouth, will give best results. some laptop mics give poor results. Check system settings for maximum mic level.
 </p>
 <p>
   When using virtual MIDI devices (programs that generate MIDI) on Windows
@@ -67,6 +67,7 @@ A quiet room and good mic will give best results. some laptop mics can give poor
 <h2>Limitations</h2>
 <ul>
 <li>Major scale only</li>
+<li>Single octave, so 2, 4, 6 rather than 9, 11, 13</li>
 <li>Non diatonic notes are shown as flat (b)</li>
 <li>MIDI is polyphonic and chords show notes in rapid succession as they are received. Microphone is monophonic.</li>
 </ul>
