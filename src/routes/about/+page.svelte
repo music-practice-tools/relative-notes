@@ -9,10 +9,10 @@
     data-sveltekit-reload>Back to App</a>
 </p>
 <p>
-  <strong>Relative Notes</strong> is a web app for displaying the scale degree of a sung note or a MIDI 'note on' message.
+  <strong>Relative Notes</strong> is a web app for displaying the scale degree of a note sung into a microphone or a MIDI 'note on' message.
 </p>
 <p>
-A scale degree (AKA scale function) is the musical distance or 'interval' of a note from a reference 'tonic' note (root) of a scale. This is a relative naming scheme, compared to absolute note names like 'C'. Scale degrees of single notes are also relevant to chord function as those are defined by the chord root note.
+A scale degree (AKA scale function) is the musical distance or 'interval' of a note from a reference 'tonic' note (root) of a scale. This is a relative naming scheme, compared to absolute note names like 'C'. Scale degrees of single notes are also similar to chord function as those are defined by the chord root note.
 </p>
 <p>
 Using scale degrees aids ear training as the 'feel' of each degree can be learnt. It also alows easy transposing between keys of a melody or harmony. 
@@ -42,13 +42,13 @@ The app shows the currently detected scale degree as Arabic numbers, Roman numbe
  that the scale degrees I sang were as expected. I found that I often sang one pitch but used a different number.
 </p>
 <p>
-  The built in pitch converter works well or your can use
+  The built in pitch converter works well or you can use
   something like the excellent <a href="https://vochlea.com/">Dubler</a> Pitch to
   MIDI converter as source.
 </p>
 <h2>Usage Notes</h2>
 <p>
-You will need to enable microphone or MIDI access for the browser when asked. This is a web security feature.
+You will need to enable microphone or MIDI access for the browser when asked. You will also need to start the processing of the microphone signal. These are web security features. Stopping the microphone may save mobile battery use.
 </p>
 <p>
   In addition, when new microphones or MIDI devices are connected or virtual midi programs launched
@@ -57,7 +57,7 @@ You will need to enable microphone or MIDI access for the browser when asked. Th
   controls to reset the mic or midi access so you can select another source.
 </p>
 <p>
-A quiet room and good mic, ideally close to your mouth, will give best results. some laptop mics give poor results. Check system settings for maximum mic level.
+A quiet room and good mic, ideally close to your mouth, will give best results. Some laptop mics give poor results. Check system settings for maximum mic level.
 </p>
 <p>
   When using virtual MIDI devices (programs that generate MIDI) on Windows
