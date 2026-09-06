@@ -40,6 +40,7 @@ The app shows the currently detected scale degree using Arabic numbers, Roman nu
   something like the excellent <a href="https://vochlea.com/">Dubler</a> Pitch to
   MIDI converter as source.
 </p>
+<h2>Usage Notes</h2>
 <p>
   Here's a short <a href="https://www.youtube.com/watch?v=CsQQuxrUV9E)"
     >demo video</a>
@@ -47,7 +48,6 @@ The app shows the currently detected scale degree using Arabic numbers, Roman nu
   <a href="https://blog.fullmeasure.uk/2024/04/25/relative-notes-tool/"
     >blog post</a> about it.
 </p>
-<h2>Usage Notes</h2>
 <p>
 You will need to enable microphone or MIDI access for the browser when asked. You will also need to start the processing of the microphone signal. These are web security features. Stopping the microphone may save mobile battery use.
 </p>
