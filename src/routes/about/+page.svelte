@@ -9,14 +9,14 @@
     data-sveltekit-reload>Back to App</a>
 </p>
 <p>
-  <strong>Relative Notes</strong> is a web app for displaying the scale degree of a note sung into a microphone or a incoming MIDI 'note on' message.
+  <strong>Relative Notes</strong> is a web app for displaying the scale degree of a note sung into a microphone or a MIDI 'note on' message.
 </p>
 <h2>Scale Degrees are Relative Notes</h2>
 <p>
-A scale degree (AKA scale function) is the musical distance or 'interval' of a note from a reference 'tonic' note (root) of a scale. This is a relative naming scheme, compared to absolute note names like 'C'.
+A scale degree (AKA scale function) is the musical distance or 'interval' of a note from a reference 'tonic' note of a scale or root of a chord. This is a relative naming scheme, compared to absolute note names like 'C'.
 </p>
 <p>
-Using scale degrees aids ear training as the 'feel' of each degree can be learnt. Common patterns can be identified and it also alows easy transposing between keys of a melody or harmony. Scale degrees are also useful in harmony for describing chord roots relative to the key tonic or the chord tones relative to the chord root.
+Using scale degrees aids ear training as the 'feel' of each degree can be learnt. Common patterns can be identified and it also alows easy transposing between keys of a melody or harmony.
 </p>
 <p>
 The app shows the currently detected scale degree as Arabic numbers, Roman numbers, Solfège or Sargam syllables.
