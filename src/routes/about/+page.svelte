@@ -28,7 +28,7 @@ The app shows the currently detected scale degree as Arabic numbers, Roman numbe
     >blog post</a> about it.
 </p>
 <p>
-  The app monitors notes sung into a microphone or MIDI 'noteon' messages
+  Relative Notes monitors notes sung into a microphone or MIDI 'noteon' messages
   from external or virtual MIDI devices. It then displays the appropriate
   number or syllable relative to the selected tonic. It also shows the degree on an <a href="https://improviseforreal.com/"
     >Improvise for Real</a> tonal map diagram as well as some extra detail on the
