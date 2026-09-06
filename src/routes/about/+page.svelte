@@ -11,6 +11,7 @@
 <p>
   <strong>Relative Notes</strong> is a web app for displaying the scale degree of a note sung into a microphone or a incoming MIDI 'note on' message.
 </p>
+<h2>Scale Degrees are Relative Notes</h2>
 <p>
 A scale degree (AKA scale function) is the musical distance or 'interval' of a note from a reference 'tonic' note (root) of a scale. This is a relative naming scheme, compared to absolute note names like 'C'. Scale degrees of single notes are also similar to chord function as those are defined by the chord root note.
 </p>
@@ -20,12 +21,11 @@ Using scale degrees aids ear training as the 'feel' of each degree can be learnt
 <p>
 The app shows the currently detected scale degree as Arabic numbers, Roman numbers, Solfège or Sargam syllables.
 </p>
+<h2>Sung Pitch recognition</h2>
 <p>
-  Here's a short <a href="https://www.youtube.com/watch?v=CsQQuxrUV9E)"
-    >demo video</a>
-  and my
-  <a href="https://blog.fullmeasure.uk/2024/04/25/relative-notes-tool/"
-    >blog post</a> about it.
+  I created Relative Notes due to the lack of tools that handle
+  relative pitch for ear training. Specifically, I wanted something to confirm
+ that the scale degrees I sang were as expected. I found that I often sang one pitch but used a different number.
 </p>
 <p>
   Relative Notes monitors notes sung into a microphone or MIDI 'noteon' messages
@@ -35,16 +35,17 @@ The app shows the currently detected scale degree as Arabic numbers, Roman numbe
   current note. The current note can be set as the tonic and future notes will
   be relative to that.
 </p>
-<h2>Sung Pitch recognition</h2>
-<p>
-  I created Relative-Notes due to the lack of tools that handle
-  relative pitch for ear training. Specifically, I wanted something to confirm
- that the scale degrees I sang were as expected. I found that I often sang one pitch but used a different number.
-</p>
 <p>
   The built in pitch converter works well or you can use
   something like the excellent <a href="https://vochlea.com/">Dubler</a> Pitch to
   MIDI converter as source.
+</p>
+<p>
+  Here's a short <a href="https://www.youtube.com/watch?v=CsQQuxrUV9E)"
+    >demo video</a>
+  and my
+  <a href="https://blog.fullmeasure.uk/2024/04/25/relative-notes-tool/"
+    >blog post</a> about it.
 </p>
 <h2>Usage Notes</h2>
 <p>
