@@ -46,7 +46,7 @@ The app shows the currently detected scale degree using Arabic numbers, Roman nu
     >demo video</a>
   and my
   <a href="https://blog.fullmeasure.uk/2024/04/25/relative-notes-tool/"
-    >blog post</a> about it.
+    >blog post</a> about Relative Notes.
 </p>
 <p>
 You will need to enable microphone or MIDI access for the browser when asked. You will also need to start the processing of the microphone signal. These are web security features. Stopping the microphone may save mobile battery use.
