@@ -5,6 +5,13 @@
   <meta charset="utf-8" />
   <link rel="icon" href="%sveltekit.assets%/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* Match the app theme before client-side styles load. */
+    html, body { background-color: #242424; color-scheme: dark; }
+    @media (prefers-color-scheme: light) {
+      html, body { background-color: #ffffff; color-scheme: light; }
+    }
+  </style>
   %sveltekit.head%
 </head>
 
